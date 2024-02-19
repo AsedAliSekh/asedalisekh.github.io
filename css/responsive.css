@@ -1,0 +1,13 @@
+/* for responsive  */
+@media only screen and (max-device-width: 700px) {
+    /* alternate CSS for small screen and width devices */
+    .landing_section{
+      flex-direction: column;
+    }
+    .photo{
+      order: 1;
+    }
+    .name{
+      order: 2;
+    }
+  } 
