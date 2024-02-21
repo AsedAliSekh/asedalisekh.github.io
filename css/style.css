@@ -1,4 +1,4 @@
-@import url(responsive.css);
+
 
 * {
   padding: 0;
@@ -66,8 +66,10 @@ body {
   color: violet;
 }
 
+/* Landding page section */
 .landing_section {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
@@ -76,8 +78,6 @@ body {
 .name {
   color: white;
 }
-
-/* Landding page section */
 .myPhoto>img {
   border-radius: 50%;
   -webkit-box-shadow: 0px 6px 34px -2px violet;
@@ -87,7 +87,7 @@ body {
 
 /* <!-- My Tech Stack section  --> */
 .tech_stack {
-  height: 90vh;
+  height: 90%;
 }
 
 .tech_text {
@@ -116,7 +116,7 @@ body {
 /* projects section  */
 .project_text {
   text-align: center;
-  margin: 20px 0 60px 0;
+  margin: 20px 0 40px 0;
 }
 
 .project_text p {
@@ -181,6 +181,7 @@ i:hover {
 .footer_top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .footer_btm {
@@ -272,7 +273,9 @@ i:hover {
   border-radius: 10px;
   scale: 1.02;
 }
-
+.work-exp>h1, .education>h1, .tech_text>h1, .project_text>h1{
+  margin: 60px 0 5px 0;
+}
 .work>*,
 i {
   color: #A7A7A7;
@@ -289,6 +292,7 @@ i {
   padding: 6px 15px;
   border-radius: 15px;
   justify-self: end;
+  height: fit-content;
 }
 
 .green-btn>abbr {

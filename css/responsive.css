@@ -1,13 +1,109 @@
-/* for responsive  */
+/* For tablet responsive */
+@media only screen and (max-width: 768px) {
+  .uni-padding{
+    padding: 0px 55px;
+  }
+  /* Navbar section*/
+  #nav_bar ul {
+    margin-left: 10px;
+  }
+  #nav_bar ul li a {
+    padding: 0 10px;
+    font-size: 17px;
+  }
+  /* About section */
+  .about-txt{
+    width: 75%;
+  }
+  /* project section*/
+  .project_container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .p_card{
+    margin-bottom: 70px;
+  }
+  /* footer section*/
+  .footer_btm {
+    display: grid;
+    height: 80px;
+    grid-template-columns: 63% 37%;
+    align-items: center;
+  }
+  .footer_btm ul li {
+    padding: 0px;
+  }
+  .footer_btm ul li a {
+    padding: 0 10px;
+    font-size: 17px;
+  }
+
+}
+
+
+
+
+/* For mobile responsive */
+@media only screen and (max-device-width: 425px) {
+  .uni-padding{
+    padding: 0px 50px;
+  }
+  /* landing section */
+  .landing_section{
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  .photo{
+    order: 1;
+  }
+  .name{
+    order: 2;
+    text-align: center;
+  }
+  .myPhoto{
+    margin: auto;
+  }
+  /* About section */
+  .about-txt{
+    width: 82%;
+  }
+  .about-txt > p{
+    text-indent: 0.5em;
+    line-height: 25px;
+  }
+  .about-txt > p::first-letter {
+    font-size: 2em;
+    
+  }
+  /* tech stack*/
+  .tech_logo{
+    grid-template-columns: auto auto;
+  }
+  .tech_logo > img{
+    height: 90px;
+  }
+
+  /* project section*/
+  .project_container {
+    display: grid;
+    grid-template-columns: auto; 
+  }
+  .p_card{
+    width: 300px;
+    margin-bottom: 80px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-device-width: 700px) {
     /* alternate CSS for small screen and width devices */
-    .landing_section{
-      flex-direction: column;
-    }
-    .photo{
-      order: 1;
-    }
-    .name{
-      order: 2;
-    }
+    
   } 
