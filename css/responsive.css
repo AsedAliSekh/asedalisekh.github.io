@@ -1,28 +1,34 @@
 /* For tablet responsive */
 @media only screen and (max-width: 768px) {
-  .uni-padding{
+  .uni-padding {
     padding: 0px 55px;
   }
+
   /* Navbar section*/
   #nav_bar ul {
     margin-left: 10px;
   }
+
   #nav_bar ul li a {
     padding: 0 10px;
     font-size: 17px;
   }
+
   /* About section */
-  .about-txt{
+  .about-txt {
     width: 75%;
   }
+
   /* project section*/
   .project_container {
     display: grid;
     grid-template-columns: auto;
   }
-  .p_card{
+
+  .p_card {
     margin-bottom: 70px;
   }
+
   /* footer section*/
   .footer_btm {
     display: grid;
@@ -30,9 +36,11 @@
     grid-template-columns: 63% 37%;
     align-items: center;
   }
+
   .footer_btm ul li {
     padding: 0px;
   }
+
   .footer_btm ul li a {
     padding: 0 10px;
     font-size: 17px;
@@ -45,65 +53,96 @@
 
 /* For mobile responsive */
 @media only screen and (max-device-width: 425px) {
-  .uni-padding{
-    padding: 0px 50px;
+  .uni-padding {
+    padding: 0px 30px;
   }
+
   /* landing section */
-  .landing_section{
+  .landing_section {
     grid-template-columns: auto;
     justify-content: center;
+    align-items: start;
   }
-  .photo{
+
+  .photo {
     order: 1;
   }
-  .name{
+
+  .name {
     order: 2;
     text-align: center;
   }
-  .myPhoto{
+
+  .myPhoto {
     margin: auto;
   }
+
   /* About section */
-  .about-txt{
-    width: 82%;
+  .about-txt {
+    width: 89%;
+    padding: 40px 17px;
   }
-  .about-txt > p{
+
+  .about-txt>p {
     text-indent: 0.5em;
-    line-height: 25px;
+    line-height: 20px;
+    font-size: medium;
   }
-  .about-txt > p::first-letter {
+
+  .about-txt>p::first-letter {
     font-size: 2em;
-    
+
   }
+
+  /*Work section*/
+  .work {
+    padding: 10px;
+    margin: 2px;
+    height: auto;
+    gap: 3px;
+    align-items: center;
+  }
+
+  .work>h2 {
+    font-size: large;
+  }
+
+  .work>p {
+    font-size: smaller;
+  }
+
   /* tech stack*/
-  .tech_logo{
+  .tech_logo {
     grid-template-columns: auto auto;
   }
-  .tech_logo > img{
+
+  .tech_logo>img {
     height: 90px;
   }
 
   /* project section*/
   .project_container {
     display: grid;
-    grid-template-columns: auto; 
+    grid-template-columns: auto;
   }
-  .p_card{
+
+  .p_card {
     width: 300px;
     margin-bottom: 80px;
   }
+
+  .p_card img{
+    height: 250px;
+  }
+
+  /* footer section*/
+  .footer_btm{
+    height: 60px;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: auto;
+  }
+  .footer_btm ul li{
+    display: none;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-device-width: 700px) {
-    /* alternate CSS for small screen and width devices */
-    
-  } 
