@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io//favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#techstack">Tech Stack</a></li>
                     <li><a href="#project">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contactLink">Contact</a></li>
                 </ul>
                 <div class="social">
                     <a href="https://github.com/AsedAliSekh" target="_blank"><i class="ri-github-fill"></i></a>
@@ -57,7 +57,7 @@
                 <a href="https://drive.google.com/file/d/1kJK5jYT5qqZ8MihCfMGpm0JhTnTsNPAr/view?usp=sharing" target="_blank">
                     <button class="resume">My Resume</button>
                 </a>
-                
+
             </div>
             <div class="myPhoto">
                 <img src="images/portrait.png" alt="Img not found" height="250px" width="250px">
@@ -259,9 +259,26 @@
 
 
         <!--Contact us section-->
-        <div class="contact uni-padding" id="contact">
-            <h1>For any questions please mail us:</h1>
-            <h1 class="gradient-text">aliased671@gmail.com</h1>
+        <div class="contactD uni-padding" id="contactLink">
+            <form id="form" class="form" method="post">
+
+                <input type="hidden" name="access_key" value= ${ACCESS_KEY}>
+                <input type="hidden" name="subject" value="New Submission from Your Portfolio!">
+                <h1 class="gradient-text">Contact Me</h1>
+                <p>Contact me today, and get reply with in 24 hours!</p>
+
+                <input type="hidden" name="subject" value="New Submission from Web3Forms">
+                <input type="checkbox" name="botcheck" id="" style="display: none;">
+                <input placeholder="Your name" type="text" tabindex="1" name="name" required autofocus>
+                <input placeholder="Your Email Address" type="email" tabindex="2" name="email" required>
+                <input placeholder="Your Phone Number" type="tel" tabindex="3" name="number" required>
+                <textarea placeholder="Type your Message Here...." tabindex="4" name="massage" required></textarea>
+                <button name="submit" type="submit" data-submit="...Sending">Submit</button>
+
+                
+            </form>
+            <div id="result"></div>
+            
         </div>
 
 
@@ -285,7 +302,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#techstack">Tech Stack</a></li>
                     <li><a href="#project">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contactLink">Contact</a></li>
                 </ul>
                 <p>
                     Designed and built by <span class="gradient-text">Ased Ali Sekh</span> with coffee
@@ -295,6 +312,8 @@
 
     </div>
 
+    <!--Link main.js-->
+    <script src="./main.js"></script>
 </body>
 
 </html>
