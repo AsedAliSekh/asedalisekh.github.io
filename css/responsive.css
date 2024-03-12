@@ -56,7 +56,10 @@
   .uni-padding {
     padding: 0px 30px;
   }
-
+  /*Nav ber Section  -- Just hide nav in mobile screen*/
+  #nav_bar ul {
+    display: none;
+  }
   /* landing section */
   .landing_section {
     grid-template-columns: auto;
