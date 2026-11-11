@@ -36,3 +36,32 @@ form.addEventListener('submit', function(e) {
             }, 4000);
         });
 });
+
+
+
+// Portfolio Migration Popup
+
+const migrationOverlay =
+    document.getElementById("migrationOverlay");
+
+const migrationClose =
+    document.getElementById("migrationClose");
+
+// Close popup on button click
+migrationClose.addEventListener("click", function () {
+    migrationOverlay.style.display = "none";
+});
+
+// Close popup when clicking outside the notice
+migrationOverlay.addEventListener("click", function (event) {
+    if (event.target === migrationOverlay) {
+        migrationOverlay.style.display = "none";
+    }
+});
+
+// Close popup using Escape key
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        migrationOverlay.style.display = "none";
+    }
+});
