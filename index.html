@@ -21,6 +21,208 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io//favicon-16x16.png">
 
+    <style>
+        
+/* =====================================
+   PORTFOLIO MIGRATION NOTICE POPUP
+===================================== */
+
+.migration-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    animation: migrationFade 0.4s ease;
+}
+
+.migration-popup {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+
+    padding: 38px 32px;
+    text-align: center;
+
+    background: #1b1b1b;
+
+    border: 1px solid rgba(225, 105, 220, 0.35);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 35px rgba(211, 75, 207, 0.13),
+        0 20px 70px rgba(0, 0, 0, 0.55);
+
+    animation: migrationSlide 0.5s ease;
+}
+
+/* Close Button */
+
+.migration-close {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: #aaa;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.migration-close:hover {
+    background: rgba(255, 75, 100, 0.2);
+    color: #fff;
+}
+
+/* Badge */
+
+.migration-badge {
+    display: inline-block;
+
+    padding: 8px 15px;
+    margin-bottom: 24px;
+
+    border: 1px solid rgba(226, 111, 220, 0.3);
+    border-radius: 30px;
+
+    color: #e77be3;
+    background: rgba(226, 111, 220, 0.08);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+/* Heading */
+
+.migration-popup h2 {
+    color: #fff;
+    font-size: 29px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.migration-popup h2 span {
+    background: linear-gradient(
+        90deg,
+        #e875e6,
+        #ff477e,
+        #ff704f
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+
+.migration-description {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+/* New Website Button */
+
+.migration-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 15px 20px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        100deg,
+        #df68dc,
+        #ff477c
+    );
+
+    color: #fff !important;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.migration-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(225, 80, 190, 0.3);
+}
+
+/* Footer Note */
+
+.migration-footer {
+    margin-top: 20px;
+
+    color: #777;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* Animations */
+
+@keyframes migrationFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes migrationSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 480px) {
+
+    .migration-popup {
+        padding: 35px 23px;
+    }
+
+    .migration-popup h2 {
+        font-size: 25px;
+    }
+
+    .migration-description {
+        font-size: 12px;
+    }
+
+}
+
+    </style>
 </head>
 
 <body>
@@ -344,8 +546,69 @@
 
     </div>
 
+    
+<!-- Portfolio Migration Notice -->
+
+<div class="migration-overlay" id="migrationOverlay">
+
+    <div class="migration-popup">
+
+        <!-- Close Button -->
+        <button
+            class="migration-close"
+            id="migrationClose"
+            aria-label="Close notice"
+            type="button"
+        >
+            &times;
+        </button>
+
+        <!-- Status -->
+        <div class="migration-badge">
+            ✦ NEW PORTFOLIO LIVE
+        </div>
+
+        <!-- Heading -->
+        <h2>
+            My Portfolio<br>
+            <span>Has Moved!</span>
+        </h2>
+
+        <!-- Description -->
+        <p class="migration-description">
+            This website is no longer being updated.
+            I've launched a new and upgraded portfolio
+            with my latest work, projects and skills.
+            <br>
+            Come explore my new digital home!
+        </p>
+
+        <!-- New Portfolio Link -->
+        <a
+    href="https://asedalisekh.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="migration-link"
+>
+    Visit My New Portfolio
+    <i class="ri-arrow-right-line"></i>
+</a>
+
+        <!-- Footer -->
+        <p class="migration-footer">
+            This website is still available to explore.
+            <br>
+            Thank you for visiting!
+        </p>
+
+    </div>
+
+</div>
+
+
     <!--Link main.js-->
     <script src="./main.js"></script>
+    
 </body>
 
 </html>
