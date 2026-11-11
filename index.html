@@ -38,7 +38,6 @@
     inset: 0;
     z-index: 999999;
 
-    height: 80vh;
 
     display: flex;
     align-items: center;
@@ -350,6 +349,53 @@
     }
 }
 
+
+/* Desktop Popup Height Adjustment */
+
+@media (min-width: 768px) {
+
+    .migration-popup {
+        padding: 25px 28px 20px;
+        max-height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+
+    .migration-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .migration-badge {
+        margin-bottom: 14px;
+        padding: 7px 12px;
+    }
+
+    .migration-popup h2 {
+        font-size: 28px;
+        margin-bottom: 9px;
+    }
+
+    .migration-description {
+        margin-bottom: 17px;
+        line-height: 1.65;
+    }
+
+    .migration-link {
+        padding: 13px 12px !important;
+    }
+
+    .migration-url {
+        margin-top: 8px;
+    }
+
+    .migration-footer {
+        margin-top: 15px;
+        padding-top: 12px;
+    }
+
+}
 
     </style>
 </head>
