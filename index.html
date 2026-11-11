@@ -23,14 +23,20 @@
 
     <style>
         
-/* =====================================
-   PORTFOLIO MIGRATION NOTICE POPUP
-===================================== */
 
-.migration-overlay {
+/* =========================================
+   PREMIUM PORTFOLIO MIGRATION POPUP
+========================================= */
+
+#migrationOverlay,
+#migrationOverlay * {
+    box-sizing: border-box;
+}
+
+#migrationOverlay {
     position: fixed;
     inset: 0;
-    z-index: 99999;
+    z-index: 999999;
 
     display: flex;
     align-items: center;
@@ -38,161 +44,273 @@
 
     padding: 20px;
 
-    background: rgba(0, 0, 0, 0.72);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    background: rgba(0, 0, 0, 0.78);
 
-    animation: migrationFade 0.4s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 1;
+    visibility: visible;
+
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
 }
+
+/* Hidden state */
+
+#migrationOverlay[hidden] {
+    display: none !important;
+}
+
+/* Popup Container */
 
 .migration-popup {
     position: relative;
-    width: 100%;
-    max-width: 460px;
 
-    padding: 38px 32px;
-    text-align: center;
+    width: 100%;
+    max-width: 440px;
+    min-width: 0;
+
+    padding: 38px 30px 30px;
 
     background: #1b1b1b;
 
-    border: 1px solid rgba(225, 105, 220, 0.35);
-    border-radius: 18px;
+    border: 1px solid rgba(231, 123, 227, 0.28);
+    border-radius: 20px;
+
+    text-align: center;
 
     box-shadow:
-        0 0 35px rgba(211, 75, 207, 0.13),
-        0 20px 70px rgba(0, 0, 0, 0.55);
+        0 0 50px rgba(220, 100, 220, 0.12),
+        0 25px 80px rgba(0, 0, 0, 0.6);
 
-    animation: migrationSlide 0.5s ease;
+    animation: migrationEnter 0.45s ease;
+}
+
+/* Top Decorative Line */
+
+.migration-popup::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #e77be3,
+        #ff668c,
+        transparent
+    );
+
+    border-radius: 50%;
 }
 
 /* Close Button */
 
 .migration-close {
     position: absolute;
-    top: 14px;
-    right: 17px;
+    top: 15px;
+    right: 15px;
 
-    width: 32px;
-    height: 32px;
+    width: 34px !important;
+    height: 34px !important;
 
-    border: none;
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.07);
-    color: #aaa;
+    background: #292929;
+    color: #ffffff;
 
     font-size: 22px;
-    cursor: pointer;
+    line-height: 1;
 
-    transition: 0.3s;
+    cursor: pointer;
+    z-index: 5;
+
+    transition: 0.25s ease;
 }
 
 .migration-close:hover {
-    background: rgba(255, 75, 100, 0.2);
-    color: #fff;
+    background: #e44b78;
+    border-color: #e44b78;
+    transform: rotate(90deg);
 }
 
-/* Badge */
+/* Icon */
 
-.migration-badge {
-    display: inline-block;
+.migration-icon {
+    width: 58px;
+    height: 58px;
 
-    padding: 8px 15px;
-    margin-bottom: 24px;
+    margin: 0 auto 20px;
 
-    border: 1px solid rgba(226, 111, 220, 0.3);
-    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: rgba(231, 123, 227, 0.10);
+    border: 1px solid rgba(231, 123, 227, 0.22);
 
     color: #e77be3;
-    background: rgba(226, 111, 220, 0.08);
+    font-size: 27px;
+}
+
+/* Status Badge */
+
+.migration-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 13px;
+    margin-bottom: 22px;
+
+    border-radius: 30px;
+
+    background: rgba(231, 123, 227, 0.09);
+    border: 1px solid rgba(231, 123, 227, 0.2);
+
+    color: #f09bed;
 
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.5px;
+}
+
+.migration-badge span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #e77be3;
+
+    box-shadow: 0 0 10px #e77be3;
 }
 
 /* Heading */
 
 .migration-popup h2 {
-    color: #fff;
-    font-size: 29px;
-    line-height: 1.3;
-    margin-bottom: 12px;
+    color: #ffffff;
+
+    font-size: 34px;
+    font-weight: 800;
+
+    line-height: 1.25;
+    letter-spacing: -1px;
+
+    margin: 0 0 13px;
 }
 
 .migration-popup h2 span {
-    background: linear-gradient(
-        90deg,
-        #e875e6,
-        #ff477e,
-        #ff704f
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ed83e8;
 }
 
 /* Description */
 
 .migration-description {
-    color: #aaa;
-    font-size: 13px;
-    line-height: 1.8;
+    color: #b7b7b7;
 
-    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.85;
+
+    margin: 0 auto 24px;
+    max-width: 340px;
 }
 
-/* New Website Button */
+/* CTA Button */
 
 .migration-link {
-    display: flex;
+    display: flex !important;
+
     align-items: center;
     justify-content: center;
     gap: 10px;
 
-    width: 100%;
-    padding: 15px 20px;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
 
-    border-radius: 50px;
+    padding: 16px 12px !important;
+    margin: 0 !important;
 
-    background: linear-gradient(
-        100deg,
-        #df68dc,
-        #ff477c
-    );
+    border: none !important;
+    border-radius: 10px;
 
-    color: #fff !important;
-    text-decoration: none;
+    background: #ed83e8 !important;
+
+    color: #171717 !important;
+
+    text-decoration: none !important;
 
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
 
-    transition: 0.3s ease;
+    line-height: 1.4;
+
+    box-shadow: 0 5px 22px rgba(231, 123, 227, 0.18);
+
+    transition: all 0.3s ease;
 }
 
 .migration-link:hover {
+    background: #ffffff !important;
+
+    color: #171717 !important;
+
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(225, 80, 190, 0.3);
+
+    box-shadow: 0 8px 28px rgba(231, 123, 227, 0.3);
 }
 
-/* Footer Note */
+.migration-link i {
+    font-size: 19px;
+}
+
+/* Website URL */
+
+.migration-url {
+    margin-top: 12px;
+
+    color: #e78be3;
+
+    font-size: 11px;
+    word-break: break-word;
+}
+
+/* Footer */
 
 .migration-footer {
-    margin-top: 20px;
+    margin: 23px 0 0;
 
-    color: #777;
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    color: #858585;
+
     font-size: 11px;
     line-height: 1.7;
 }
 
-/* Animations */
+/* Animation */
 
-@keyframes migrationFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes migrationSlide {
+@keyframes migrationEnter {
     from {
         opacity: 0;
         transform: translateY(20px) scale(0.96);
@@ -208,19 +326,28 @@
 
 @media (max-width: 480px) {
 
+    #migrationOverlay {
+        padding: 16px;
+    }
+
     .migration-popup {
-        padding: 35px 23px;
+        padding: 35px 22px 24px;
+        border-radius: 17px;
     }
 
     .migration-popup h2 {
-        font-size: 25px;
+        font-size: 29px;
     }
 
     .migration-description {
         font-size: 12px;
     }
 
+    .migration-link {
+        font-size: 13px;
+    }
 }
+
 
     </style>
 </head>
@@ -547,56 +674,66 @@
     </div>
 
     
-<!-- Portfolio Migration Notice -->
+
+<!-- PREMIUM PORTFOLIO MIGRATION NOTICE -->
 
 <div class="migration-overlay" id="migrationOverlay">
 
-    <div class="migration-popup">
+    <div class="migration-popup" id="migrationPopup">
 
         <!-- Close Button -->
         <button
+            type="button"
             class="migration-close"
             id="migrationClose"
-            aria-label="Close notice"
-            type="button"
+            aria-label="Close popup"
         >
             &times;
         </button>
 
+        <!-- Icon -->
+        <div class="migration-icon">
+            <i class="ri-arrow-left-right-line"></i>
+        </div>
+
         <!-- Status -->
         <div class="migration-badge">
-            ✦ NEW PORTFOLIO LIVE
+            <span></span>
+            NEW PORTFOLIO LIVE
         </div>
 
         <!-- Heading -->
         <h2>
-            My Portfolio<br>
-            <span>Has Moved!</span>
+            I've Moved!<br>
+            <span>A New Portfolio Awaits.</span>
         </h2>
 
         <!-- Description -->
         <p class="migration-description">
-            This website is no longer being updated.
-            I've launched a new and upgraded portfolio
-            with my latest work, projects and skills.
-            <br>
-            Come explore my new digital home!
+            This portfolio is no longer being updated.
+            My upgraded portfolio is now live with my
+            latest projects, skills and experiences.
         </p>
 
-        <!-- New Portfolio Link -->
+        <!-- Main CTA -->
         <a
-    href="https://asedalisekh.vercel.app/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="migration-link"
->
-    Visit My New Portfolio
-    <i class="ri-arrow-right-line"></i>
-</a>
+            href="https://asedalisekh.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="migration-link"
+        >
+            Visit My New Portfolio
+            <i class="ri-arrow-right-up-line"></i>
+        </a>
+
+        <!-- URL -->
+        <p class="migration-url">
+            asedalisekh.vercel.app
+        </p>
 
         <!-- Footer -->
         <p class="migration-footer">
-            This website is still available to explore.
+            You can still explore this old portfolio.
             <br>
             Thank you for visiting!
         </p>
