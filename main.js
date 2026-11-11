@@ -39,29 +39,49 @@ form.addEventListener('submit', function(e) {
 
 
 
-// Portfolio Migration Popup
 
-const migrationOverlay =
-    document.getElementById("migrationOverlay");
 
-const migrationClose =
-    document.getElementById("migrationClose");
+document.addEventListener("DOMContentLoaded", function () {
 
-// Close popup on button click
-migrationClose.addEventListener("click", function () {
-    migrationOverlay.style.display = "none";
-});
+    const overlay = document.getElementById("migrationOverlay");
+    const popup = document.getElementById("migrationPopup");
+    const closeButton = document.getElementById("migrationClose");
 
-// Close popup when clicking outside the notice
-migrationOverlay.addEventListener("click", function (event) {
-    if (event.target === migrationOverlay) {
-        migrationOverlay.style.display = "none";
+    // Safety check
+    if (!overlay || !popup || !closeButton) {
+        console.error("Migration popup elements not found!");
+        return;
     }
-});
 
-// Close popup using Escape key
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        migrationOverlay.style.display = "none";
+    // Close popup function
+    function closeMigrationPopup() {
+        overlay.setAttribute("hidden", "");
     }
+
+    // Close button click
+    closeButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        closeMigrationPopup();
+    });
+
+    // Close when clicking outside popup
+    overlay.addEventListener("click", function (event) {
+
+        if (!popup.contains(event.target)) {
+            closeMigrationPopup();
+        }
+
+    });
+
+    // Close using Escape key
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape" && !overlay.hidden) {
+            closeMigrationPopup();
+        }
+
+    });
+
 });
